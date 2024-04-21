@@ -1,0 +1,66 @@
+name: Terraform
+on:
+  push:
+    paths-ignore:
+    - 'README.md'
+  workflow_dispatch:
+
+concurrency: main
+
+permissions: write-all
+
+env:
+  ARM_USE_OIDC: true
+  ARM_USE_AZUREAD: true
+  ARM_TENANT_ID: ${{ secrets.azure_tenant_id }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.azure_subscription_id }}
+  ARM_CLIENT_ID: ${{ secrets.azure_client_id }}
+
+jobs:
+  terraform-workflow:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3.0.0
+    - name: Az CLI login
+      uses: Azure/login@v2.0.0
+      with:
+        client-id: ${{ secrets.azure_client_id }}
+        tenant-id: ${{ secrets.azure_tenant_id }}
+        subscription-id: ${{ secrets.azure_subscription_id }}
+          #    - name: Run Trivy vulnerability scanner in IaC mode
+          #      uses: aquasecurity/trivy-action@master
+          #      with:
+          #        scan-type: 'config'
+          #        scan-ref: './terraform'
+          #        format: sarif
+          #        output: trivy-results.sarif
+          #    - name: Upload Trivy scan results to GitHub Security tab
+          #      uses: github/codeql-action/upload-sarif@v2
+          #      if: always()
+          #      with:
+          #        sarif_file: 'trivy-results.sarif'
+#    - name: Terraform Init
+#      working-directory: ./terraform
+#      run: terraform init
+#    - name: Terraform Format
+#      working-directory: ./terraform
+#      run: terraform fmt -check
+#    - name: Terraform Validate
+#      working-directory: ./terraform
+#      run: terraform validate
+#    - name: Terraform Test
+#      if: true # testing toogle
+#      working-directory: ./terraform
+#      run: |
+#        terraform test
+#    - name: Terraform Plan
+#      working-directory: ./terraform
+#      run: |
+#        terraform plan -out=tfplan -var="resource_group_name=aks_flux_addon"
+#        terraform-bin show -json -no-color tfplan > tfplan.json
+#        terraform-bin show -no-color tfplan >> $GITHUB_STEP_SUMMARY
+#    - name: Terraform Apply
+#      working-directory: ./terraform
+#      run: terraform apply tfplan
