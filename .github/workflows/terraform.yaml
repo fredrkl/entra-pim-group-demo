@@ -61,6 +61,6 @@ jobs:
         terraform plan -out=tfplan
         terraform-bin show -json -no-color tfplan > tfplan.json
         terraform-bin show -no-color tfplan >> $GITHUB_STEP_SUMMARY
-#    - name: Terraform Apply
-#      working-directory: ./terraform
-#      run: terraform apply tfplan
+    - name: Terraform Apply
+      working-directory: ./terraform
+      run: terraform apply tfplan
