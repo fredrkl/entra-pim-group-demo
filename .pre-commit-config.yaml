@@ -1,0 +1,6 @@
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.50.0 # Use the latest release version from the repo.
+  hooks:
+  - id: terraform_fmt
+    files: ^terraform/.*\.tf$
