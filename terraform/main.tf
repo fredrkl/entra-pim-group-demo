@@ -14,10 +14,11 @@ terraform {
       version = "3.85.0"
     }
     azuread = {
-      source = "hashicorp/azuread"
+      source  = "hashicorp/azuread"
       version = "2.48.0"
     }
   }
+
   backend "azurerm" {
     resource_group_name  = "terraform-state-files"
     storage_account_name = "tfaddemostatefiles"
