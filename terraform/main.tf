@@ -6,6 +6,12 @@ provider "azuread" {
   # Configuration options
 }
 
+resource "azuread_group" "main" {
+  display_name     = "pim-group-demo"
+  owners           = ["ea06710a-7380-4959-9cb8-f8cd0955ac59"]
+  security_enabled = true
+}
+
 terraform {
   required_version = ">= 1.7"
   required_providers {
