@@ -2,6 +2,13 @@
 
 This repo intent to demonstrate the use of Entra PIM for Group using Infrastructure as Code (IaC).
 
+## Setup
+
+The Service Principal (SP) used by Terraform need the following permissions:
+
+- `Group.ReadWrite.All`
+- `Directory.ReadWrite.All`
+
 ## Pre-commit hooks for terraform files (optional)
 
 ❗ The pre-commit hooks are only running on staged files.
