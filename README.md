@@ -13,6 +13,13 @@ The Service Principal (SP) used by Terraform need the following permissions:
 
 We will use the [Microsoft Graph API documentation](https://learn.microsoft.com/en-us/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview?view=graph-rest-1.0) to make API requests and programmatically setup PIM for Groups.
 
+There are ongoing Azure Entra PIM Terraform support issues:
+
+- [Generic PIM Support](https://github.com/hashicorp/terraform-provider-azuread/issues/68)
+- [PIM Group Management PR](https://github.com/hashicorp/terraform-provider-azuread/pull/1327)
+
+The issues have been open for many years. One reason is the complexity of the PIM API and its versions: https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-apis.
+
 ## Pre-commit hooks for terraform files (optional)
 
 ❗ The pre-commit hooks are only running on staged files.
