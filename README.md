@@ -9,6 +9,10 @@ The Service Principal (SP) used by Terraform need the following permissions:
 - `Group.ReadWrite.All`
 - `Directory.ReadWrite.All`
 
+## Notes
+
+We will use the [Microsoft Graph API documentation](https://learn.microsoft.com/en-us/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview?view=graph-rest-1.0) to make API requests and programmatically setup PIM for Groups.
+
 ## Pre-commit hooks for terraform files (optional)
 
 ❗ The pre-commit hooks are only running on staged files.
