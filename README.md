@@ -20,6 +20,8 @@ There are ongoing Azure Entra PIM Terraform support issues:
 
 The issues have been open for many years. One reason is the complexity of the PIM API and its versions: https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-apis.
 
+Following the example at https://learn.microsoft.com/en-us/graph/api/unifiedrolemanagementpolicy-update?view=graph-rest-1.0&tabs=powershell#example-2-update-the-details-of-a-policy-defined-in-pim-for-groups.
+
 ## Pre-commit hooks for terraform files (optional)
 
 ❗ The pre-commit hooks are only running on staged files.
