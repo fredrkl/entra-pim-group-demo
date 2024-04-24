@@ -22,6 +22,44 @@ The issues have been open for many years. One reason is the complexity of the PI
 
 Following the example at https://learn.microsoft.com/en-us/graph/api/unifiedrolemanagementpolicy-update?view=graph-rest-1.0&tabs=powershell#example-2-update-the-details-of-a-policy-defined-in-pim-for-groups.
 
+## Powershell
+
+- [Install powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4).
+- Go into powershell mode.
+
+The signed in user must have the following permissions:
+
+- RoleManagementPolicy.Read.AzureADGroup
+- RoleManagementPolicy.ReadWrite.AzureADGroup
+
+```
+pwsh
+```
+
+- Install Az.Resources module
+- Install-Module -Name Microsoft.Graph -Scope CurrentUser -AllowClobber
+
+```
+Install-Module -Name Az -AllowClobber -Scope CurrentUser
+```
+
+- Login using
+
+```
+Connect-AzAccount
+```
+
+- Connect to Microsoft Graph
+
+```
+Connect-MgGraph -Scopes "RoleManagementPolicy.Read.AzureADGroup", "RoleManagementPolicy.ReadWrite.AzureADGroup"
+```
+
+- Run the script
+
+```
+update-pim-rules.ps1
+```
 ## Pre-commit hooks for terraform files (optional)
 
 ❗ The pre-commit hooks are only running on staged files.
