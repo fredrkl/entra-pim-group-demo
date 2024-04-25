@@ -8,6 +8,8 @@ The Service Principal (SP) used by Terraform need the following permissions:
 
 - `Group.ReadWrite.All`
 - `Directory.ReadWrite.All`
+- `RoleManagementPolicy.Read.AzureADGroup`
+- `RoleManagementPolicy.ReadWrite.AzureADGroup`
 
 ## Notes
 
@@ -26,11 +28,6 @@ Following the example at https://learn.microsoft.com/en-us/graph/api/unifiedrole
 
 - [Install powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4).
 - Go into powershell mode.
-
-The signed in user must have the following permissions:
-
-- RoleManagementPolicy.Read.AzureADGroup
-- RoleManagementPolicy.ReadWrite.AzureADGroup
 
 ```
 pwsh
