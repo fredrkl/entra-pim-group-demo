@@ -1,3 +1,8 @@
+param (
+  [Parameter(Mandatory = $True)]
+  [string]$GroupId
+)
+
 Import-Module Microsoft.Graph.Identity.SignIns
 
 # All the rules are defined her: https://learn.microsoft.com/en-us/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-1.0&tabs=powershell
@@ -31,8 +36,9 @@ $params = @{
       }
   )
 }
+Write-Host "Creating PIM policy for group $GroupId"
 
-$policies = Get-MgPolicyRoleManagementPolicyAssignment -Filter "scopeId eq 'c5df26ef-bb43-406d-92f5-09dc0d7ebef6' and scopeType eq 'Group' and roleDefinitionId eq 'owner'"
+$policies = Get-MgPolicyRoleManagementPolicyAssignment -Filter "scopeId eq '$GroupId' and scopeType eq 'Group' and roleDefinitionId eq 'owner'"
 
 # Then update the policy with the new rule
 Update-MgPolicyRoleManagementPolicy -UnifiedRoleManagementPolicyId $policies.PolicyId -BodyParameter $params
