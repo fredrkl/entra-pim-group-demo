@@ -11,6 +11,36 @@ Import-Module Microsoft.Graph.Identity.SignIns
 $params = @{
   rules = @(
       @{
+        "@odata.type" = "#microsoft.graph.unifiedRoleManagementPolicyApprovalRule"
+        id = "Approval_EndUser_Assignment"
+        target = @{
+          caller = "EndUser"
+          operations = @("All")
+          level = "Assignment"
+          inheritableSettings = @()
+          enforcedSettings = @()
+        }
+        setting = @{
+          isApprovalRequired = $true
+          isApprovalRequiredForExtension = $false
+          isRequestorJustificationRequired = $true
+          approvalMode = "SingleStage"
+          approvalStages = @(
+            @{
+              isApproverJustificationRequired = $true
+              isEscalationEnabled = $false
+              primaryApprovers = @(
+                @{
+                  "@odata.type" = "#microsoft.graph.groupMembers"
+                  isBackup = $false
+                  id = "1cf624d0-4cf2-458a-83b8-3d2687d248d5" # aks-prod-owners
+                  description = $null
+                })
+              escalationApprovers = @()
+            })
+        }
+      },
+      @{
         "@odata.type" = "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule"
         id = "Expiration_Admin_Eligibility"
         isExpirationRequired = $false
