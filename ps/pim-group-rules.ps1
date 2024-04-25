@@ -1,6 +1,8 @@
 param (
   [Parameter(Mandatory = $True)]
-  [string]$GroupId
+  [string]$GroupId,
+  [Parameter(Mandatory = $True)]
+  [string]$Role
 )
 
 Import-Module Microsoft.Graph.Identity.SignIns
@@ -38,9 +40,9 @@ $params = @{
 }
 Write-Host "Creating PIM policy for group $GroupId"
 
-$policies = Get-MgPolicyRoleManagementPolicyAssignment -Filter "scopeId eq '$GroupId' and scopeType eq 'Group' and roleDefinitionId eq 'owner'"
+$policies = Get-MgPolicyRoleManagementPolicyAssignment -Filter "scopeId eq '$GroupId' and scopeType eq 'Group' and roleDefinitionId eq '$Role'"
 
 Update-MgPolicyRoleManagementPolicy -UnifiedRoleManagementPolicyId $policies.PolicyId -BodyParameter $params
 
 # Usage:
-# ./pim-group-rules.ps1 -GroupId c5df26ef-bb43-406d-92f5-09dc0d7ebef6
+# ./pim-group-rules.ps1 -GroupId c5df26ef-bb43-406d-92f5-09dc0d7ebef6 -Role owner
