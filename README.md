@@ -1,6 +1,20 @@
 # Entra PIM Group Demo
 
-This repo intent to demonstrate the use of Entra PIM for Group using Infrastructure as Code (IaC).
+This repo´s intent to demonstrate the use of Entra PIM for Group using Infrastructure as Code (IaC).
+
+The repo will setup up the following group and PIM settings:
+
+```mermaid
+graph TD
+    %% Entities
+    prod[aks-prod-pim-group-demo]
+    team-demo[team-demo]
+    aks-prod-owners[aks-prod-owners]
+
+    %% Relations
+    team-demo --Eligible member-->prod
+    aks-prod-owners --Approve member requests-->prod
+```
 
 ## Setup
 
