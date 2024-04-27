@@ -49,7 +49,7 @@ Connect-AzAccount
 - Connect to Microsoft Graph
 
 ```
-Connect-MgGraph -Scopes "RoleManagementPolicy.Read.AzureADGroup", "RoleManagementPolicy.ReadWrite.AzureADGroup"
+Connect-MgGraph -Scopes "RoleManagementPolicy.Read.AzureADGroup", "RoleManagementPolicy.ReadWrite.AzureADGroup", "PrivilegedEligibilitySchedule.ReadWrite.AzureADGroup", "PrivilegedAccess.ReadWrite.AzureADGroup"
 ```
 
 - Run the script
