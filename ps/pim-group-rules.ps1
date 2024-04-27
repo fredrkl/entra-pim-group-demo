@@ -72,6 +72,17 @@ Write-Host "Creating PIM policy for group $GroupId"
 
 $policies = Get-MgPolicyRoleManagementPolicyAssignment -Filter "scopeId eq '$GroupId' and scopeType eq 'Group' and roleDefinitionId eq '$Role'"
 
+#### Debugging
+#$policy = Get-MgPolicyRoleManagementPolicy -UnifiedRoleManagementPolicyId $policies.PolicyId -ExpandProperty "rules(`$select=id)"
+#$json = $policy | ConvertTo-Json -Depth 10
+#Write-Host "Policy: $json"
+##foreach ($policy in $policies) {
+##  $json = $policy | ConvertTo-Json -Depth 10
+##  Write-Host "Policy: $json"
+##}
+
+### Debugging
+
 Update-MgPolicyRoleManagementPolicy -UnifiedRoleManagementPolicyId $policies.PolicyId -BodyParameter $params
 
 # Usage:
