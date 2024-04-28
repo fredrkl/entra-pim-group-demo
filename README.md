@@ -7,9 +7,9 @@ The repo will setup up the following group and PIM settings:
 ```mermaid
 graph TD
     %% Entities
-    prod[aks-prod-pim-group-demo]
-    team-demo[team-demo]
-    aks-prod-owners[aks-prod-owners]
+    prod[team-abc-pim]
+    team-demo[team-abc]
+    aks-prod-owners[team-abc-owners]
 
     %% Relations
     team-demo --Eligible member-->prod
