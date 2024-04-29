@@ -2,7 +2,9 @@ param (
   [Parameter(Mandatory = $True)]
   [string]$GroupId,
   [Parameter(Mandatory = $True)]
-  [string]$Role
+  [string]$Role,
+  [Parameter(Mandatory = $True)]
+  [string]$ApproversGroupId
 )
 
 Import-Module Microsoft.Graph.Identity.SignIns
@@ -33,7 +35,7 @@ $params = @{
                 @{
                   "@odata.type" = "#microsoft.graph.groupMembers"
                   isBackup = $false
-                  id = "1cf624d0-4cf2-458a-83b8-3d2687d248d5" # aks-prod-owners
+                  id = $ApproversGroupId
                   description = $null
                 })
               escalationApprovers = @()
@@ -86,4 +88,4 @@ $policies = Get-MgPolicyRoleManagementPolicyAssignment -Filter "scopeId eq '$Gro
 Update-MgPolicyRoleManagementPolicy -UnifiedRoleManagementPolicyId $policies.PolicyId -BodyParameter $params
 
 # Usage:
-# ./pim-group-rules.ps1 -GroupId c5df26ef-bb43-406d-92f5-09dc0d7ebef6 -Role owner
+# ./pim-group-rules.ps1 -GroupId ab41503f-3eaa-45bb-8876-59a8c344d762 -Role owner -ApproversGroupId 195f7621-c2a1-404f-aa3c-3cf688d8d0b3
