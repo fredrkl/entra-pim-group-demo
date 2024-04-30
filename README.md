@@ -92,6 +92,15 @@ pre-commit uninstall
 
 - You can't onboard a group to PIM for groups explicitly. When you request to add assignment to group using Create assignmentScheduleRequest or Create eligibilityScheduleRequest, or you update PIM policy (role settings) for a group using Update unifiedRoleManagementPolicy or Update unifiedRoleManagementPolicyRule, the group is onboarded to PIM automatically if it wasn't onboarded before.
 
+## Resources
+
+- [List Policy Assignments](https://learn.microsoft.com/en-us/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0&tabs=http)
+- [Update Policy](https://learn.microsoft.com/en-us/graph/how-to-pim-update-rules?tabs=http)
+- [Update Policy #2](https://learn.microsoft.com/en-us/graph/api/unifiedrolemanagementpolicy-update?view=graph-rest-1.0&tabs=powershell)
+- [Assign Eligible Members/Owners](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/groups-assign-member-owner)
+- [Demo Eligible assignments](https://dikkekip.github.io/posts/pim-for-groups-1/)
+- [MS Graph API - Privileged AccessGroup Eligibility ScheduleRequest](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.governance/new-mgidentitygovernanceprivilegedaccessgroupeligibilityschedulerequest?view=graph-powershell-1.0)
+
 ## Build
 
 [![Terraform](https://github.com/fredrkl/entra-pim-group-demo/actions/workflows/terraform.yaml/badge.svg)](https://github.com/fredrkl/entra-pim-group-demo/actions/workflows/terraform.yaml)
