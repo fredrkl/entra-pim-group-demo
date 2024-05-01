@@ -16,6 +16,8 @@ graph TD
     aks-prod-owners --Approve member requests-->prod
 ```
 
+Acompaning blog post can be found at: [my blog](https://fredrkl.com/blog/privileged-identity-management-for-groups-in-azure/).
+
 ## Setup
 
 The Service Principal (SP) used by Terraform need the following permissions:
