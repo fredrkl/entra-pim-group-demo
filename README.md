@@ -1,5 +1,7 @@
 # Entra PIM Group Demo
 
+> :warning: Terraform support was merged into [main 08.Mai.2024](https://github.com/hashicorp/terraform-provider-azuread/pull/1327#event-12736849942). Please see #32 issue for up to date migration information.
+
 This repo´s intent to demonstrate the use of Entra PIM for Group using Infrastructure as Code (IaC).
 
 The repo will setup up the following group and PIM settings:
