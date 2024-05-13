@@ -14,7 +14,6 @@ resource "azuread_group" "main" {
 
 resource "azuread_group" "pim_group_demo" {
   display_name     = "pim-group-tf-demo"
-  owners           = ["ea06710a-7380-4959-9cb8-f8cd0955ac59"]
   security_enabled = true
 }
 
