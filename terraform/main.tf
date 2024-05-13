@@ -29,6 +29,13 @@ resource "azuread_group_role_management_policy" "example" {
 
   activation_rules {
     maximum_duration = "PT1H"
+    require_approval = true
+    approval_stage {
+      primary_approver {
+        object_id = "195f7621-c2a1-404f-aa3c-3cf688d8d0b3" # Team ABC Owner
+        type      = "groupMembers"
+      }
+    }
   }
 
   # eligible assignment and then add an entra group
