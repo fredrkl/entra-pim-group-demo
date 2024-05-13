@@ -6,11 +6,11 @@ provider "azuread" {
   # Configuration options
 }
 
-resource "azuread_group" "main" {
-  display_name     = "pim-group-demo"
-  owners           = ["ea06710a-7380-4959-9cb8-f8cd0955ac59"]
-  security_enabled = true
-}
+#resource "azuread_group" "main" {
+#  display_name     = "pim-group-demo"
+#  owners           = ["ea06710a-7380-4959-9cb8-f8cd0955ac59"]
+#  security_enabled = true
+#}
 
 resource "azuread_group" "pim_group_demo" {
   display_name     = "pim-group-tf-demo-latest"
@@ -26,6 +26,11 @@ resource "azuread_group_role_management_policy" "example" {
   eligible_assignment_rules {
     expiration_required = false
   }
+
+  activation_rules {
+    maximum_duration = "PT1H"
+  }
+
   # eligible assignment and then add an entra group
   #eligible_assignments {
   #  principal_id = azuread_group.main.id
