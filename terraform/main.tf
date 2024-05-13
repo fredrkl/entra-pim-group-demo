@@ -22,6 +22,15 @@ resource "azuread_group" "pim_group_demo" {
 resource "azuread_group_role_management_policy" "example" {
   group_id = azuread_group.pim_group_demo.id
   role_id  = "member"
+
+  eligible_assignment_rules {
+    expiration_required = false
+  }
+  # eligible assignment and then add an entra group
+  #eligible_assignments {
+  #  principal_id = azuread_group.main.id
+  #  principal_type = "Group"
+  #}
 }
 
 terraform {
