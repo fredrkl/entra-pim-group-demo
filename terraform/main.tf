@@ -18,6 +18,11 @@ resource "azuread_group" "pim_group_demo" {
   security_enabled = true
 }
 
+resource "azuread_group" "pim_group_no_owner" {
+  display_name     = "pim-group-tf-no_owner"
+  security_enabled = true
+}
+
 # Starting with azuread group role management policy
 
 resource "azuread_group_role_management_policy" "example" {
