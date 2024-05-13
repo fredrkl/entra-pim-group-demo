@@ -28,6 +28,8 @@ The Service Principal (SP) used by Terraform need the following permissions:
 - `Directory.ReadWrite.All`
 - `RoleManagementPolicy.Read.AzureADGroup`
 - `RoleManagementPolicy.ReadWrite.AzureADGroup`
+- `PrivilegedEligibilitySchedule.ReadWrite.AzureADGroup`
+- `PrivilegedEligibilitySchedule.Remove.AzureADGroup`
 
 ## Notes
 
