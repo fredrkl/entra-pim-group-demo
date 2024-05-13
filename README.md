@@ -95,6 +95,7 @@ pre-commit uninstall
 ## Lessons learned
 
 - You can't onboard a group to PIM for groups explicitly. When you request to add assignment to group using Create assignmentScheduleRequest or Create eligibilityScheduleRequest, or you update PIM policy (role settings) for a group using Update unifiedRoleManagementPolicy or Update unifiedRoleManagementPolicyRule, the group is onboarded to PIM automatically if it wasn't onboarded before.
+- Once a group is onboarded to PIM, you can't remove it from PIM. The pim group still shows up even if you remove the underlying group.
 
 ## Resources
 
