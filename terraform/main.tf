@@ -18,6 +18,13 @@ resource "azuread_group" "pim_group_demo" {
   security_enabled = true
 }
 
+# Starting with azuread group role management policy
+
+resource "azuread_group_role_management_policy" "example" {
+  group_id = azuread_group.pim_group_demo.id
+  role_id  = "member"
+}
+
 terraform {
   required_version = ">= 1.7"
   required_providers {
