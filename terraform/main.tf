@@ -17,6 +17,9 @@ resource "azuread_group" "pim_group_demo" {
   security_enabled = true
 }
 
+data "azuread_group" "team_abc" {
+  object_id = "5c4f1e8b-2d6e-4c72-abf8-5ab15c32a326"
+}
 # Starting with azuread group role management policy
 
 resource "azuread_group_role_management_policy" "example" {
@@ -37,12 +40,13 @@ resource "azuread_group_role_management_policy" "example" {
       }
     }
   }
+}
 
-  # eligible assignment and then add an entra group
-  #eligible_assignments {
-  #  principal_id = azuread_group.main.id
-  #  principal_type = "Group"
-  #}
+resource "azuread_privileged_access_group_eligibility_schedule" "main" {
+  group_id             = azuread_group.pim_group_demo.id
+  principal_id         = data.azuread_group.team_abc.id
+  assignment_type      = "member"
+  permanent_assignment = true
 }
 
 terraform {
