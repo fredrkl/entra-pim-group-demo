@@ -24,10 +24,10 @@ resource "azuread_group" "pim_group_no_owner" {
 
 # Starting with azuread group role management policy
 
-#resource "azuread_group_role_management_policy" "example" {
-#  group_id = azuread_group.pim_group_demo.id
-#  role_id  = "member"
-#}
+resource "azuread_group_role_management_policy" "example" {
+  group_id = azuread_group.pim_group_demo.id
+  role_id  = "member"
+}
 
 terraform {
   required_version = ">= 1.7"
