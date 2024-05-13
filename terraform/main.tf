@@ -13,12 +13,7 @@ resource "azuread_group" "main" {
 }
 
 resource "azuread_group" "pim_group_demo" {
-  display_name     = "pim-group-tf-demo"
-  security_enabled = true
-}
-
-resource "azuread_group" "pim_group_no_owner" {
-  display_name     = "pim-group-tf-no_owner"
+  display_name     = "pim-group-tf-demo-latest"
   security_enabled = true
 }
 
